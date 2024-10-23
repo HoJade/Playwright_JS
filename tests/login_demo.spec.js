@@ -38,7 +38,7 @@ test('Demo Login Test 1', async ({ page }) => {
 })
 
 // test.only() --> only run this test in the current file
-test('Demo Login Test 2', async ({ page }) => {
+test.only('Demo Login Test 2', async ({ page }) => {
     await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
     await page.pause()
 
@@ -68,12 +68,17 @@ test('Demo Login Test 2', async ({ page }) => {
      * depreciated
      * await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
      */
-    
+
 })
 
-test.only('Demo Login Test 3', async ({ page }) => {
+test('Demo Login Test 3', async ({ browser }) => {
+    // create a new context with a custom User-Agent
+    const context = await browser.newContext({
+        userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+    })
+    const page = await context.newPage()    // create a new page in the context
     await page.goto('https://admin-demo.nopcommerce.com/login')
-    await page.pause()
+    // await page.pause()
 
     await page.getByLabel('Email:').click();
     await page.getByLabel('Email:').press('ControlOrMeta+a');
@@ -83,8 +88,20 @@ test.only('Demo Login Test 3', async ({ page }) => {
     await page.getByLabel('Password:').fill('admin');
     await page.getByRole('button', { name: 'Log in' }).click();
 
-    await page.waitForURL('https://admin-demo.nopcommerce.com/login')
+    await page.waitForLoadState('networkidle')
+    const captchaSelectorExists = await page.locator('#gLIfn4 > div > div').isVisible()
+    if (captchaSelectorExists) {
+        console.log("reCAPTCHA deteched, please solve it manually.")
+        await page.pause()
+    } else {
+        console.log('No reCAPTCHA deteched, proceeding with the test.')
+    }
+
+    /**
+     * these command can't by-pass the reCAPTCHA
+    await page.getByLabel('checkbox').click()
     await page.locator('//input[@type="checkbox"]').click()
+     */
 
     await page.locator('text = Logout').click()
 })
