@@ -80,12 +80,15 @@ test('Demo Login Test 3', async ({ browser }) => {
     await page.goto('https://admin-demo.nopcommerce.com/login')
     // await page.pause()
 
+    // await page.locator('input[name="Email"]').click()    // using CSS selector format here
     await page.getByLabel('Email:').click();
     await page.getByLabel('Email:').press('ControlOrMeta+a');
     await page.getByLabel('Email:').fill('admin@yourstore.com');
+    // await page.locator('input[name="Password"]').click()
     await page.getByLabel('Password:').click();
     await page.getByLabel('Password:').press('ControlOrMeta+a');
     await page.getByLabel('Password:').fill('admin');
+    // await page.locator('text = Log in').click()
     await page.getByRole('button', { name: 'Log in' }).click();
 
     await page.waitForLoadState('networkidle')
