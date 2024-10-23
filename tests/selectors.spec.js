@@ -22,6 +22,8 @@ test('Selectors Demo', async ({ page }) => {
     await page.locator('xpath=//input[@id="user-name"]').fill('Yannes')
     // or
     await page.locator('//input[@id="user-name"]').fill('standard_user')
+    // CSS alternative
+    // await page.locator('input[id="user-name"]').fill('standard_user')
 
 
     // using CSS selector
