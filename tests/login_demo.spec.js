@@ -53,7 +53,10 @@ test('Demo Login Test 2', async ({ page }) => {
 
     // await page.locator('button:has-text("Login")').click()
     await page.getByRole('button', { name: 'Login' }).click();
-    await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+    /**
+     * depreciated
+     * await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
+     */
 
     await page.locator('[class="oxd-userdropdown-name"]').click()
 
@@ -61,7 +64,11 @@ test('Demo Login Test 2', async ({ page }) => {
     // or
     //await page.locator('text = Logout').click()
     await page.getByRole('menuitem', { name: 'Logout' }).click();
-    await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    /**
+     * depreciated
+     * await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+     */
+    
 })
 
 test.only('Demo Login Test 3', async ({ page }) => {
