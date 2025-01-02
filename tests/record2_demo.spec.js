@@ -2,7 +2,7 @@
  * the test is run in chromium by default
  * 
  * the following script is complied in javascript
- * >> npx playwright codegen --target javascript -o record2_demo.spec.js
+ * >> npx playwright codegen --target javascript -o ./tests/record2_demo.spec.js
  */
 
 const { test, expect, chromium } = require('@playwright/test');
