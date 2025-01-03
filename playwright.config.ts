@@ -25,7 +25,7 @@ export default defineConfig({
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
-     * For exmaple in `await expect(locator).toHaveText();`
+     * For example in `await expect(locator).toHaveText();`
      */
     timeout: 8000       // originally, the expect() timeout = 5 sec
   },
@@ -41,6 +41,14 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',      // on-first-retry | on-all-retry | off | on | retain-on-failure
+
+    /* Run tests in headful/headless mode. */
+    // headless: false,
+
+    video: 'on',                  // off | on | on-first-retry | retain-on-failure | retry-with-video
+    launchOptions: {
+      slowMo: 1000,                 // slow down the browser operations by 1000ms (1s)
+    },
   },
 
   /* Configure projects for major browsers */
