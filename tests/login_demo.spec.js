@@ -92,12 +92,13 @@ test('Demo Login Test 3', async ({ browser }) => {
     await page.getByRole('button', { name: 'Log in' }).click();
 
     await page.waitForLoadState('networkidle')
-    const captchaSelectorExists = await page.locator('#gLIfn4 > div > div').isVisible()
+    const captchaSelectorExists = await page.locator('text = Verify you are human by completing the action below.').isVisible()
     if (captchaSelectorExists) {
         console.log("reCAPTCHA deteched, please solve it manually.")
         await page.pause()
     } else {
         console.log('No reCAPTCHA deteched, proceeding with the test.')
+        await page.locator('text = Logout').click()
     }
 
     /**
@@ -106,5 +107,5 @@ test('Demo Login Test 3', async ({ browser }) => {
     await page.locator('//input[@type="checkbox"]').click()
      */
 
-    await page.locator('text = Logout').click()
+    // await page.locator('text = Logout').click()
 })
