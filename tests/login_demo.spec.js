@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test'
  * 3 ways to summon Playwright Inspector to generate script:
  * 1.   npx playwright codegen {optional: website address}
  * 2.   npx playwright test {file path} --debug
- * 3.   using --> await page.pause() command
+ * 3.   npx playwright test --headed  (w/ --> `await page.pause()` command)
  */
 
 test('Demo Login Test 1', async ({ page }) => {
