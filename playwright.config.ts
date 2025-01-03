@@ -45,10 +45,12 @@ export default defineConfig({
     /* Run tests in headful/headless mode. */
     // headless: false,
 
-    video: 'on',                  // off | on | on-first-retry | retain-on-failure | retry-with-video
-    launchOptions: {
-      slowMo: 1000,                 // slow down the browser operations by 1000ms (1s)
-    },
+    // /* Record videos of test runs. */
+    // video: 'on',                  // off | on | on-first-retry | retain-on-failure | retry-with-video
+    // /* Record in slow motion. */
+    // launchOptions: {
+    //   slowMo: 1000,                 // slow down the browser operations by 1000ms (1s)
+    // },
   },
 
   /* Configure projects for major browsers */
