@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { snapshot } from 'node:test';
 
 // set-up the tracing for all the tests in this file
+/* this set-up only works WHEN trace is 'on' in the playwright.config.ts file */
 let context
 let page
 test.beforeAll(async ({ browser }) => {
