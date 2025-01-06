@@ -1,7 +1,7 @@
 import {test, expect, chromium} from '@playwright/test';
 
 
-test('Slow Motion and Video Recording demo', async() => {
+test('Slow Motion and Video Recording Demo', async() => {
     // launch browser
     const browser = await chromium.launch({
         headless: false,
