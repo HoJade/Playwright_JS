@@ -22,13 +22,13 @@ test.describe('All My Tests', () => {
     //     await page.close();
     // })
 
+
     test('Homepage', async ({ page }) => {
 
         await page.locator('[data-test="add-to-cart-sauce-labs-backpack"]').click();
         await page.locator('[data-test="add-to-cart-sauce-labs-bike-light"]').click();
         await page.locator('[data-test="item-1-title-link"]').click();
         await page.locator('[data-test="add-to-cart"]').click();
-
     })
 
     test('Logout', async ({ page }) => {
@@ -36,7 +36,6 @@ test.describe('All My Tests', () => {
         await page.locator('text = Open Menu').click();
         await page.locator('[data-test="logout-sidebar-link"]').click();
         await expect(page).toHaveURL(/saucedemo/)
-
     })
 
 })
